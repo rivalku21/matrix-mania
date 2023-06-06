@@ -24,6 +24,7 @@
 		464F3C4329E6D2BF0053308C /* Generate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generate.swift; sourceTree = "<group>"; };
 		464F3C4B29E8034E0053308C /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		465C1AE629F7F51B00FB61D3 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		465D459F2A2F7A31008C508B /* Match MatrixDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Match MatrixDebug.entitlements"; sourceTree = "<group>"; };
 		467FAAA529EED8BF00D94492 /* countdown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = countdown.mp3; sourceTree = "<group>"; };
 		467FAAA729EED92800D94492 /* TutorialScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreen.swift; sourceTree = "<group>"; };
 		46FB82A129DBFBED00EF4571 /* Match Matrix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Match Matrix.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +100,7 @@
 		46FB82A329DBFBED00EF4571 /* Match Matrix */ = {
 			isa = PBXGroup;
 			children = (
+				465D459F2A2F7A31008C508B /* Match MatrixDebug.entitlements */,
 				465C1AEA29F7FCEE00FB61D3 /* Screen */,
 				465C1AE929F7FCD700FB61D3 /* DataController */,
 				465C1AE829F7FCBC00FB61D3 /* DataModel */,
@@ -325,7 +327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = "Match Matrix/Match Matrix.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Match Matrix/Match MatrixDebug.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
