@@ -110,22 +110,22 @@ struct ContentView: View {
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity)
                 
-                Grid{
-                    GridRow{
+                VStack{
+                    HStack{
                         ForEach (0..<3){ index in
                             RectangleView{
                                 Text(String(answr[index]))
                             }
                         }
                     }
-                    GridRow{
+                    HStack{
                         ForEach (3..<6){ index in
                             RectangleView{
                                 Text(String(answr[index]))
                             }
                         }
                     }
-                    GridRow{
+                    HStack{
                         ForEach (6..<9){ index in
                             RectangleView{
                                 Text(String(answr[index]))
@@ -138,20 +138,20 @@ struct ContentView: View {
                     .fill(.black)
                     .frame(height: 3, alignment: .bottom)
                 
-                Grid{
-                    GridRow{
+                VStack{
+                    HStack{
                         buttonView(num: [0, 1, 3])
                         buttonView(num: [1, 0, 2, 4])
                         buttonView(num: [2, 1, 5])
                     }
                     
-                    GridRow{
+                    HStack{
                         buttonView(num: [3, 0, 4, 6])
                         buttonView(num: [4, 1, 3, 5, 7])
                         buttonView(num: [5, 2, 4, 8])
                     }
                     
-                    GridRow{
+                    HStack{
                         buttonView(num: [6, 3, 7])
                         buttonView(num: [7, 4, 6, 8])
                         buttonView(num: [8, 5, 7])
