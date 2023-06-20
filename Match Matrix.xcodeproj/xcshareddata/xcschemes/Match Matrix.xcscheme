@@ -49,6 +49,9 @@
             ReferencedContainer = "container:Match Matrix.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../Match Matrix/Resources/Matrix Mania.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

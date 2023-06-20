@@ -1,0 +1,66 @@
+{
+  "identifier" : "63E43CA9",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6450460499",
+      "localizations" : [
+        {
+          "description" : "Add 3 Hint",
+          "displayName" : "3 Hint",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "matrix.mania.hint.purchase",
+      "referenceName" : "hint",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "6450460703",
+      "localizations" : [
+        {
+          "description" : "Add 20 Hint",
+          "displayName" : "20 Hint",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "matrix.mania.hint.2.purchase",
+      "referenceName" : "hint 2",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "6450460815",
+      "localizations" : [
+        {
+          "description" : "Add 50 Hint",
+          "displayName" : "50 Hint",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "matrix.mania.hint.3.purchase",
+      "referenceName" : "hint 3",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6449902495",
+    "_askToBuyEnabled" : false,
+    "_developerTeamID" : "365WJYN4LU",
+    "_lastSynchronizedDate" : 708963090.23180401
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

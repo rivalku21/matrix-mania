@@ -12,7 +12,7 @@ struct HomeScreen: View {
     @Namespace var namespace
     @State private var position: CGFloat = 0
     @State private var screen: Int = 1
-    @State private var difficulty: Int = 0
+    @State private var difficulty: Difficulty = .easy
     
     var body: some View {
         NavigationStack{
@@ -52,15 +52,15 @@ struct HomeView: View {
         GeometryReader { geometry in
             VStack(spacing: geometry.size.height * 0.03){
                 HStack {
-//                    Button {
-//                        isShop.toggle()
-//                    } label: {
-//                        Image("Shop")
-//                            .resizable()
-//                            .frame(width: geometry.size.width * 0.13, height: geometry.size.width * 0.13)
-//                    }
+                    Button {
+                        isShop.toggle()
+                    } label: {
+                        Image("Shop")
+                            .resizable()
+                            .frame(width: geometry.size.width * 0.13, height: geometry.size.width * 0.13)
+                    }
                     
-//                    Spacer()
+                    Spacer()
                     
                     Button {
                         isLeaderBoard.toggle()
@@ -123,13 +123,13 @@ struct HomeView: View {
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
             .overlay {
                 if (isLeaderBoard && !isShop && !isDetail) {
-                    leaderBoard(isLeaderBoard: $isLeaderBoard, isDetail: $isDetail, objectIDString: $objectIDString)
+                    LeaderBoard(isLeaderBoard: $isLeaderBoard, isDetail: $isDetail, objectIDString: $objectIDString)
                 }
-//                else if (isShop && !isLeaderBoard && !isDetail){
-//                    shopping(isShop: $isShop)
-//                }
+                else if (isShop && !isLeaderBoard && !isDetail){
+                    Shopping(isShop: $isShop)
+                }
                 else if (isLeaderBoard && isDetail && !isShop){
-                    leaderBoardDetail(isDetail: $isDetail, dataId: $objectIDString)
+                    LeaderBoardDetail(isDetail: $isDetail, dataId: $objectIDString)
                 }
             }
         }
@@ -222,13 +222,13 @@ struct TutorialView: View {
 
 struct levelView: View {
     @Binding var screen: Int
-    @Binding var difficulty: Int
+    @Binding var difficulty: Difficulty
     
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: geometry.size.height * 0.02){
                 Button {
-                    difficulty = 1
+                    difficulty = .easy
                     withAnimation {
                         screen = 3
                     }
@@ -245,7 +245,24 @@ struct levelView: View {
                 }
                 
                 Button {
-                    difficulty = 2
+                    difficulty = .medium
+                    withAnimation {
+                        screen = 3
+                    }
+                } label: {
+                    ZStack{
+                        Image("Table")
+                            .resizable()
+                            .frame(width: geometry.size.width * 0.45, height: geometry.size.height * 0.1)
+                        Text("MEDIUM")
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                            .font(.system(size: geometry.size.width * 0.06))
+                    }
+                }
+                
+                Button {
+                    difficulty = .hard
                     withAnimation {
                         screen = 3
                     }
@@ -255,23 +272,6 @@ struct levelView: View {
                             .resizable()
                             .frame(width: geometry.size.width * 0.45, height: geometry.size.height * 0.1)
                         Text("HARD")
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
-                            .font(.system(size: geometry.size.width * 0.06))
-                    }
-                }
-                
-                Button {
-                    difficulty = 3
-                    withAnimation {
-                        screen = 3
-                    }
-                } label: {
-                    ZStack{
-                        Image("Table")
-                            .resizable()
-                            .frame(width: geometry.size.width * 0.45, height: geometry.size.height * 0.1)
-                        Text("VERY HARD")
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                             .font(.system(size: geometry.size.width * 0.06))

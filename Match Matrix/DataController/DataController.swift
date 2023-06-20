@@ -48,10 +48,17 @@ class DataController: ObservableObject {
         }
     }
     
-    func addItem(difficulty: Int, timeElapsed: TimeInterval, matrix: [Int], star: Int) {
+    func addItem(difficulty: Difficulty, timeElapsed: TimeInterval, matrix: [Int], star: Int) {
         let matrixData = Matrix(context: container.viewContext)
         matrixData.identifier = UUID().uuidString
-        matrixData.difficulty = Int16(difficulty)
+        switch difficulty {
+        case .easy:
+            matrixData.difficulty = Int16(1)
+        case .medium:
+            matrixData.difficulty = Int16(2)
+        case .hard:
+            matrixData.difficulty = Int16(3)
+        }
         matrixData.duration = String(timeElapsed.formattedMilliseconds())
         matrixData.matrix = matrix as NSObject
         matrixData.star = Int16(star)
@@ -60,7 +67,7 @@ class DataController: ObservableObject {
     }
 
     func getObjectByID(stringId: String) -> Matrix? {
-        var idObject: NSManagedObjectID? = objectIDFromString(stringId) ?? nil
+        let idObject: NSManagedObjectID? = objectIDFromString(stringId) ?? nil
         
         do {
             let results = try container.viewContext.existingObject(with: idObject!)
