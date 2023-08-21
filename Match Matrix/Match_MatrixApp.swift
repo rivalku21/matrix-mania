@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
-struct Match_MatrixApp: App {
+struct MatchMatrixApp: App {
+    @StateObject var gameCenterManager = GameCenterManager()
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            BaseScreen()
+                .environmentObject(gameCenterManager)
         }
     }
 }

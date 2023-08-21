@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Match Matrix
+
+  Created by Rival Fauzi on 21/08/23.
+  
+*/
+
+"firstGoal" = "Let's have fun! The goal of this game is to match the numbers in the matrix below with the ones above before time runs out.";
+"firstRule" = "Clicking on a number in the box increases its value along with its adjacent boxes (left, right, top, bottom) by 1.";
+"secondRule" = "Number in the box cannot be reduced.";
+"thirdRule" = "If the number in the box is clicked and its value is 9, then the value of the number will reset to 0.";
