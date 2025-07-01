@@ -11,7 +11,7 @@ struct ContentView: View {
     @Binding var screen: Int
     @Binding var difficulty: Difficulty
     @StateObject var generalData = GeneralDataFunction()
-    @State private var int: [Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+//    @State private var int: [Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     @State var isLose: Bool = false
     @State var isOpen: Bool = true
     @State var alertPause: Bool = false

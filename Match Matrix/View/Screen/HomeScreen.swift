@@ -21,34 +21,87 @@ struct HomeView: View {
         GeometryReader { geometry in
             VStack(spacing: geometry.size.height * 0.03) {
                 HStack {
-                    Button {
-                        isShop.toggle()
-                    } label: {
-                        Image("Shop")
-                            .resizable()
-                            .frame(width: geometry.size.width * 0.13, height: geometry.size.width * 0.13)
+                    ZStack(alignment: .leading) {
+                        ZStack(alignment: .trailing) {
+                            Image("Table")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.2, height: geometry.size.height * 0.035)
+
+                            Text("15:31")
+                                .font(.custom("SoupofJustice", size: geometry.size.width * 0.04))
+                                .foregroundStyle(.white)
+                                .padding(.trailing, 6)
+                        }
+                        .offset(x: 12)
+
+                        ZStack {
+                            Image("Love")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: geometry.size.width * 0.12)
+
+                            Text("5")
+                                .font(.custom("SoupofJustice", size: geometry.size.width * 0.06))
+                                .foregroundStyle(.white)
+                        }
                     }
                     Spacer()
-                    Button {
-//                        isLeaderBoard.toggle()
-                        gameCenterManager.showLeaderboard()
-                    } label: {
-                        Image("Prize")
+                    ZStack(alignment: .leading) {
+                        ZStack(alignment: .trailing) {
+                            Image("Table")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.2, height: geometry.size.height * 0.035)
+
+                            Text("9999")
+                                .font(.custom("SoupofJustice", size: geometry.size.width * 0.04))
+                                .foregroundStyle(.white)
+                                .padding(.trailing, 6)
+                        }
+                        .offset(x: 12)
+
+                        Image("SilverCoin")
                             .resizable()
-                            .frame(width: geometry.size.width * 0.13, height: geometry.size.width * 0.13)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width * 0.12)
+                    }
+
+                    Spacer()
+                    ZStack(alignment: .leading) {
+                        ZStack(alignment: .trailing) {
+                            Image("Table")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.2, height: geometry.size.height * 0.035)
+
+                            Text("9999")
+                                .font(.custom("SoupofJustice", size: geometry.size.width * 0.04))
+                                .foregroundStyle(.white)
+                                .padding(.trailing, 6)
+                        }
+                        .offset(x: 12)
+
+                        Image("GoldCoin")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width * 0.12)
                     }
                 }
-                .frame(maxWidth: geometry.size.width * 0.5)
+                
+                Spacer()
+                // Main View
                 VStack {
-                    Image("Icon")
+                    Image("Level")
                         .resizable()
-                        .frame(width: geometry.size.width * 0.5, height: geometry.size.width * 0.5)
-                        .matchedGeometryEffect(id: "icon", in: namespace)
-                    Text("Matrix Mania")
-                        .foregroundColor(.black)
-                        .fontWeight(.bold)
-                        .font(.system(size: geometry.size.width * 0.06))
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width * 0.3)
+                    
+                    levelView(level: "123")
+                        .frame(height: geometry.size.height * 0.05)
                 }
+                Image("Icon")
+                    .resizable()
+                    .frame(width: geometry.size.width * 0.5, height: geometry.size.width * 0.5)
+                    .matchedGeometryEffect(id: "icon", in: namespace)
+                
                 Button {
                     withAnimation {
                         screen = 4
@@ -60,6 +113,7 @@ struct HomeView: View {
                             .frame(width: geometry.size.width * 0.45, height: geometry.size.height * 0.1)
                         HStack {
                             Text("PLAY")
+                                .font(.custom("SoupofJustice", size: geometry.size.width * 0.1))
                             Image(systemName: "play.fill")
                         }
                         .foregroundColor(.white)
@@ -67,25 +121,67 @@ struct HomeView: View {
                         .font(.system(size: geometry.size.width * 0.06))
                     }
                 }
-                Button {
-                    withAnimation {
-                        screen = 2
-                    }
-                } label: {
-                    ZStack {
-                        Image("Table")
-                            .resizable()
-                            .frame(width: geometry.size.width * 0.45, height: geometry.size.height * 0.1)
-                        HStack {
-                            Text("TUTORIAL")
+
+                Spacer()
+                // Bottom bar
+                HStack(alignment: .bottom) {
+                    Button {
+                        
+                    } label: {
+                        VStack {
+                            Image("Settings")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.13, height: geometry.size.width * 0.13)
+                            Text("Settings")
+                                .font(.custom("SoupofJustice", size: geometry.size.width * 0.04))
+                                .foregroundStyle(.white)
                         }
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                        .font(.system(size: geometry.size.width * 0.06))
+                    }
+                    Spacer()
+                    Button {
+                        withAnimation {
+                            screen = 2
+                        }
+                    } label: {
+                        VStack {
+                            Image("Faq")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.13, height: geometry.size.width * 0.13)
+                            Text("Tutorial")
+                                .font(.custom("SoupofJustice", size: geometry.size.width * 0.04))
+                                .foregroundStyle(.white)
+                        }
+                    }
+                    Spacer()
+                    Button {
+                        gameCenterManager.showLeaderboard()
+                    } label: {
+                        VStack {
+                            Image("Prize")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.13, height: geometry.size.width * 0.13)
+                            Text("Rank")
+                                .font(.custom("SoupofJustice", size: geometry.size.width * 0.04))
+                                .foregroundStyle(.white)
+                        }
+                    }
+                    Spacer()
+                    Button {
+//                        isShop.toggle()
+                        screen = 5
+                    } label: {
+                        VStack {
+                            Image("Shop")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.2, height: geometry.size.width * 0.2)
+                            Text("Shop")
+                                .font(.custom("SoupofJustice", size: geometry.size.width * 0.04))
+                                .foregroundStyle(.white)
+                        }
                     }
                 }
-                .matchedGeometryEffect(id: "image1", in: namespace)
             }
+            .padding(.horizontal, geometry.size.width * 0.1)
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
             .overlay {
                 if isLeaderBoard && !isShop && !isDetail {
@@ -95,15 +191,25 @@ struct HomeView: View {
                         objectIDString: $objectIDString
                     )
                 } else if isShop && !isLeaderBoard && !isDetail {
-                    Shopping(
-                        isShop: $isShop
-                    )
+//                    Shopping(
+//                        isShop: $isShop
+//                    )
                 } else if isLeaderBoard && isDetail && !isShop {
                     LeaderBoardDetail(
                         isDetail: $isDetail,
                         dataId: $objectIDString
                     )
                 }
+            }
+        }
+    }
+    
+    func levelView(level: String) -> some View {
+        return HStack {
+            ForEach(Array(level), id: \.self) { character in
+                Image(String(character))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
             }
         }
     }

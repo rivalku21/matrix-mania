@@ -36,6 +36,7 @@
 		467FAAA629EED8BF00D94492 /* countdown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 467FAAA529EED8BF00D94492 /* countdown.mp3 */; };
 		467FAAA829EED92800D94492 /* TutorialScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467FAAA729EED92800D94492 /* TutorialScreen.swift */; };
 		4690144B2A5020F600341C98 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4690144A2A5020F600341C98 /* StoreKit.framework */; };
+		46CF7E642D5F7A9B00E706D1 /* soupofjustice.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46CF7E632D5F7A9B00E706D1 /* soupofjustice.ttf */; };
 		46FB82A529DBFBED00EF4571 /* Match_MatrixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FB82A429DBFBED00EF4571 /* Match_MatrixApp.swift */; };
 		46FB82A729DBFBED00EF4571 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FB82A629DBFBED00EF4571 /* ContentView.swift */; };
 		46FB82A929DBFBEE00EF4571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46FB82A829DBFBEE00EF4571 /* Assets.xcassets */; };
@@ -76,6 +77,7 @@
 		467FAAA529EED8BF00D94492 /* countdown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = countdown.mp3; sourceTree = "<group>"; };
 		467FAAA729EED92800D94492 /* TutorialScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScreen.swift; sourceTree = "<group>"; };
 		4690144A2A5020F600341C98 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		46CF7E632D5F7A9B00E706D1 /* soupofjustice.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = soupofjustice.ttf; sourceTree = "<group>"; };
 		46FB82A129DBFBED00EF4571 /* Match Matrix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Match Matrix.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FB82A429DBFBED00EF4571 /* Match_MatrixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match_MatrixApp.swift; sourceTree = "<group>"; };
 		46FB82A629DBFBED00EF4571 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		465788D52A41EB7C0021F0CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				46CF7E622D5F7A8500E706D1 /* Font */,
 				460F5A1A29EC1C0400D6EF4A /* Sound */,
 				46FD09B329FBB22A00BC567A /* MatrixData.xcdatamodeld */,
 				465788D42A41E81F0021F0CD /* Matrix Mania.storekit */,
@@ -203,6 +206,14 @@
 				4690144A2A5020F600341C98 /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		46CF7E622D5F7A8500E706D1 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				46CF7E632D5F7A9B00E706D1 /* soupofjustice.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		46FB829829DBFBED00EF4571 = {
@@ -306,6 +317,7 @@
 			files = (
 				46463B722A93111B00ACE47D /* Localizable.strings in Resources */,
 				46FB82AC29DBFBEE00EF4571 /* Preview Assets.xcassets in Resources */,
+				46CF7E642D5F7A9B00E706D1 /* soupofjustice.ttf in Resources */,
 				467FAAA629EED8BF00D94492 /* countdown.mp3 in Resources */,
 				465788D72A41EBA10021F0CD /* PropertyList.plist in Resources */,
 				46FB82A929DBFBEE00EF4571 /* Assets.xcassets in Resources */,

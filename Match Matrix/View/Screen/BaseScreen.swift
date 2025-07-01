@@ -30,6 +30,8 @@ struct BaseScreen: View {
                         ContentView(screen: $screen, difficulty: $difficulty)
                     case 4:
                         LevelView(screen: $screen, difficulty: $difficulty)
+                    case 5:
+                        Shopping(screen: $screen)
                     default:
                         HomeView(screen: $screen, namespace: namespace)
                     }
