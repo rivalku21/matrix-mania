@@ -85,6 +85,7 @@
 		46FB82AB29DBFBEE00EF4571 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		46FB82B229DC201700EF4571 /* BaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
 		46FD09B429FBB22A00BC567A /* MatrixData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MatrixData.xcdatamodel; sourceTree = "<group>"; };
+		FA0368DC2E1683EC0070434E /* Jenkinsfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jenkinsfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +220,7 @@
 		46FB829829DBFBED00EF4571 = {
 			isa = PBXGroup;
 			children = (
+				FA0368DC2E1683EC0070434E /* Jenkinsfile */,
 				46FB82A329DBFBED00EF4571 /* Match Matrix */,
 				46FB82A229DBFBED00EF4571 /* Products */,
 				469014492A5020F600341C98 /* Frameworks */,
