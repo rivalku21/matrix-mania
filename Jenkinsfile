@@ -1,24 +1,17 @@
 pipeline {
     agent any
-
+    environment {
+        PATH = "/opt/homebrew/bin:$PATH" // agar Jenkins bisa temukan brew dan swiftlint
+    }
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Run SwiftLint') {
             steps {
-                sh 'brew install swiftlint || true'
+                echo 'Checking swiftlint location...'
+                sh 'which swiftlint'
+
+                echo 'Running SwiftLint...'
                 sh 'swiftlint'
             }
-        }
-    }
-
-    post {
-        always {
-            archiveArtifacts artifacts: '**/swiftlint.log', allowEmptyArchive: true
         }
     }
 }
