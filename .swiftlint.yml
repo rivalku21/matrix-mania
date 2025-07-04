@@ -12,6 +12,11 @@ only_rules:
   - unused_optional_binding
   - vertical_whitespace
   - void_return
+  - cyclomatic_complexity
+  - function_body_length
+  - nesting
+  - identifier_name
+  - line_length
   - custom_rules
 
 excluded:
@@ -24,6 +29,41 @@ colon:
 
 indentation: 2
 
+cyclomatic_complexity:
+  warning: 10
+  error: 20
+  ignores_case_statements: false
+
+function_body_length:
+  warning: 40
+  error: 60
+  ignores_comments: true
+  ignores_empty_functions: true
+
+nesting:
+  type_level: 2
+  statement_level: 5
+  severity: warning
+
+identifier_name:
+  min_length:
+    warning: 3
+    error: 1
+  max_length:
+    warning: 40
+    error: 60
+  excluded:
+    - id
+    - x
+    - y
+
+line_length:
+  warning: 120
+  error: 200
+  ignores_urls: true
+  ignores_comments: true
+  ignores_function_declarations: true
+
 custom_rules:
   no_objcMembers:
     name: "@objcMembers"
@@ -31,21 +71,21 @@ custom_rules:
     message: "Explicitly use @objc on each member you want to expose to Objective-C"
     severity: error
   no_direct_standard_out_logs:
-    name: "Writing log messages directly to standard out is disallowed"
+    name: "No direct standard out logs"
     regex: "(\\bprint|\\bdebugPrint|\\bdump|Swift\\.print|Swift\\.debugPrint|Swift\\.dump)\\s*\\("
     match_kinds:
-    - identifier
-    message: "Don't commit `print(…)`, `debugPrint(…)`, or `dump(…)` as they write to standard out in release. Either log to a dedicated logging system or silence this warning in debug-only scenarios explicitly using `// swiftlint:disable:next no_direct_standard_out_logs`"
+      - identifier
+    message: "Don't commit `print`, `debugPrint`, or `dump`. Use a logging system instead or wrap with `#if DEBUG`."
     severity: warning
   no_file_literal:
     name: "#file is disallowed"
-    regex: "(\\b#file\\b)"
+    regex: "\\b#file\\b"
     match_kinds:
-    - identifier
-    message: "Instead of #file, use #fileID"
+      - identifier
+    message: "Use #fileID instead of #file."
   no_filepath_literal:
     name: "#filePath is disallowed"
-    regex: "(\\b#filePath\\b)"
+    regex: "\\b#filePath\\b"
     match_kinds:
-    - identifier
-    message: "Instead of #filePath, use #fileID."
+      - identifier
+    message: "Use #fileID instead of #filePath."
