@@ -125,6 +125,5 @@ class DataController: ObservableObject {
             print("Failed to save context: \(error.localizedDescription)")
             // Handle the error
         }
-
     }
 }
