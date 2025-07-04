@@ -4,33 +4,35 @@ pipeline {
         PATH = "/opt/homebrew/bin:$PATH"
     }
     stages {
-        stage("Lint Changed Files on PR to main or MainTest") {
+        stage("Lint Changed Swift Files on PR") {
             when {
                 expression {
-                    return env.CHANGE_TARGET == "main" || env.CHANGE_TARGET == "MainTest"
+                    return env.CHANGE_ID != null && 
+                           (env.CHANGE_TARGET == "main" || env.CHANGE_TARGET == "MainTest")
                 }
             }
             steps {
                 script {
-                    echo "Target Branch: ${env.CHANGE_TARGET}"
-                    echo "Linting only changed Swift files..."
+                    echo "Linting PR to ${env.CHANGE_TARGET}"
 
-                    // Ambil file .swift yang berubah di PR
-                    def changedFilesRaw = sh(
-                        script: "git diff --name-only origin/${env.CHANGE_TARGET}...HEAD | grep '.swift$' || true",
+                    // Fetch branch target terlebih dahulu
+                    sh "git fetch origin ${env.CHANGE_TARGET}:${env.CHANGE_TARGET}"
+
+                    // Gunakan string aman
+                    def target = env.CHANGE_TARGET
+                    def changedFiles = sh(
+                        script: "git diff --name-only origin/${target}...HEAD | grep \\.swift\$ || true",
                         returnStdout: true
                     ).trim()
 
-                    if (changedFilesRaw) {
-                        def changedFiles = changedFilesRaw.readLines() // 💡 Lebih aman daripada split("\n")
-                        echo "Changed Swift files:\n${changedFiles.join('\n')}"
-
-                        changedFiles.each { file ->
-                            echo "Linting: ${file}"
+                    if (changedFiles) {
+                        def files = changedFiles.split("\\n")
+                        for (file in files) {
+                            echo "Linting ${file}"
                             sh "swiftlint lint --path '${file}'"
                         }
                     } else {
-                        echo "No changed Swift files detected."
+                        echo "No Swift files changed."
                     }
                 }
             }
