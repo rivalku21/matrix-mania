@@ -132,7 +132,7 @@ struct HomeView: View {
                             Image("Settings")
                                 .resizable()
                                 .frame(width: geometry.size.width * 0.13, height: geometry.size.width * 0.13)
-                            Text("Settings")
+                            Text("Perubahan")
                                 .font(.custom("SoupofJustice", size: geometry.size.width * 0.04))
                                 .foregroundStyle(.white)
                         }
