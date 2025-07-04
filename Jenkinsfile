@@ -7,7 +7,7 @@ pipeline {
         stage("Lint Changed Files on PR to main or develop") {
             when {
                 expression {
-                    return env.CHANGE_TARGET == "main" || env.CHANGE_TARGET == "develop"
+                    return env.CHANGE_TARGET == "main" || env.CHANGE_TARGET == "MainTest"
                 }
             }
             steps {
