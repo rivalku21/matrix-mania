@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         PATH = "/opt/homebrew/bin:$PATH"
-        BASE_BRANCH = "main"
+        BASE_BRANCH = "MainTest"
     }
     stages {
         stage("Lint Changed Swift Files") {
