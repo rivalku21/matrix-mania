@@ -4,38 +4,34 @@ pipeline {
         PATH = "/opt/homebrew/bin:$PATH"
     }
     stages {
-        stage('Conditional SwiftLint') {
+        stage("Lint Changed Files on PR to main or develop") {
+            when {
+                expression {
+                    return env.CHANGE_TARGET == "main" || env.CHANGE_TARGET == "develop"
+                }
+            }
             steps {
                 script {
-                    def targetBranches = ['main', 'MainTest']
-                    def currentBranch = env.BRANCH_NAME
+                    echo "Target Branch: ${env.CHANGE_TARGET}"
+                    echo "Linting only changed Swift files..."
 
-                    echo "Current branch: ${currentBranch}"
+                    // Ambil file .swift yang berubah di PR
+                    def changedFiles = sh(
+                        script: "git diff --name-only origin/${env.CHANGE_TARGET}...HEAD | grep '\\.swift$' || true",
+                        returnStdout: true
+                    ).trim()
 
-                    if (targetBranches.contains(currentBranch)) {
-                        echo "Linting for protected branch: ${currentBranch}"
+                    if (changedFiles) {
+                        echo "Changed Swift files:\n${changedFiles}"
 
-                        // Tentukan base branch untuk diff
-                        def diffBase = "origin/${currentBranch}"
-                        sh "git fetch origin"
-
-                        def changedFiles = sh(
-                            script: "git diff --name-only ${diffBase}...HEAD | grep '\\.swift$' || true",
-                            returnStdout: true
-                        ).trim()
-
-                        if (changedFiles) {
-                            echo "Changed Swift files:\n${changedFiles}"
-
-                            changedFiles.split("\n").each { file ->
-                                echo "Linting ${file}"
-                                sh "swiftlint lint --path '${file}' || true"
-                            }
-                        } else {
-                            echo "No Swift files changed. Skipping lint."
+                        // Pisahkan menjadi array dan lint satu per satu
+                        def files = changedFiles.split("\\n")
+                        for (file in files) {
+                            echo "Linting: ${file}"
+                            sh "swiftlint lint --path '${file}'"
                         }
                     } else {
-                        echo "Branch ${currentBranch} is not in protected list. Skipping SwiftLint."
+                        echo "No changed Swift files detected."
                     }
                 }
             }
