@@ -24,7 +24,7 @@ pipeline {
 
                     // Ambil daftar file .swift yang berubah
                     def changedFiles = sh(
-                        script: "git diff --name-only origin/${env.CHANGE_TARGET}...HEAD | grep '\\.swift$' || true",
+                        script: """git diff --name-only origin/${env.CHANGE_TARGET}...HEAD | grep '\\.swift$' || true""",
                         returnStdout: true
                     ).trim()
 
