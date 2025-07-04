@@ -21,11 +21,9 @@ pipeline {
                     // Fetch base branch
                     sh "git fetch origin ${target}:${target}"
 
-                    // FIX: Gunakan triple-double quotes
-                    def changedFiles = sh(
-                        script: """git diff --name-only origin/${target}...HEAD | grep '\\.swift$' || true""",
-                        returnStdout: true
-                    ).trim()
+                    // Pisahkan jadi dua langkah agar tidak error Groovy
+                    def cmd = "git diff --name-only origin/${target}...HEAD | grep \\.swift\$ || true"
+                    def changedFiles = sh(script: cmd, returnStdout: true).trim()
 
                     if (changedFiles) {
                         echo "Swift files changed:\n${changedFiles}"
